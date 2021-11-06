@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header/Header.js";
+import Nav from "./components/Nav/Nav.js";
+import Sort from "./components/Sort/Sort.js";
+import Content from "./components/Content/Content.js";
+import { useState, useEffect } from "react";
+
+import "./App.scss";
 
 function App() {
+
+  const [pizzasList, setPizzasList] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/database.json')
+      .then((resp) => resp.json())
+      .then((json) => {
+        setPizzasList(json.pizzas)
+      })
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="wrapper">
+        <Header />
+        <div className="navBarWrapper">
+          <Nav />
+          <Sort />
+        </div>
+        <div className="contentWrapper">
+          {pizzasList.map((obj) => (
+            <Content key={`${obj.name} + ${obj.id}`} {...obj} />
+          ))}
+        </div>
+      </div>
+    </>
   );
 }
 

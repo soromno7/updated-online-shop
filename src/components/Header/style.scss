@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  height: 130px;
+  background: white;
+  align-items: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 0px 50px 0px 50px;
+
+  &-symbols {
+    display: flex;
+    align-items: center;
+
+    > img {
+      margin-right: 30px;
+    }
+  }
+
+  &-btn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 45px;
+    width: 130px;
+    cursor: pointer;
+    background-color: rgb(235, 164, 34);
+    border-radius: 30px;
+  }
+}

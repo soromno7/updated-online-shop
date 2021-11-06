@@ -1,0 +1,28 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+
+  &Btn {
+    background: rgb(167, 167, 167);
+    border-radius: 20px;
+    justify-content: space-around;
+    cursor: pointer;
+    padding: 0px 15px 0px 15px;
+    height: 30px;
+    text-align: center;
+    margin-right: 10px;
+    color: black;
+
+    &-active {
+      background: rgb(0, 0, 0);
+      border-radius: 20px;
+      justify-content: space-around;
+      cursor: pointer;
+      padding: 0px 15px 0px 15px;
+      height: 30px;
+      text-align: center;
+      margin-right: 10px;
+      color: white;
+    }
+  }
+}

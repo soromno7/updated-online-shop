@@ -1,0 +1,27 @@
+.sort-popup {
+  background: black;
+  padding: 0;
+  position: absolute;
+  margin-top: 8px;
+  right: 198px;
+  width: 175px;
+  border: 1px solid none;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+  border-radius: 8px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  z-index: 0;
+  > li {
+    list-style-type: none;
+    cursor: pointer;
+    padding: 0px 0px 0px 20px;
+  }
+}
+.sortByItem {
+  &-active {
+    background: rgb(75, 49, 49);
+  }
+}
