@@ -1,5 +1,5 @@
 .sort-popup {
-  background: black;
+  background: white;
   padding: 0;
   position: absolute;
   margin-top: 8px;
@@ -7,7 +7,13 @@
   width: 175px;
   border: 1px solid none;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
-  border-radius: 8px;
+  &-hidden {
+    display: none;
+  }
+}
+
+.sort-container {
+  width: 276px;
 }
 
 ul {
@@ -22,6 +28,11 @@ ul {
 }
 .sortByItem {
   &-active {
-    background: rgb(75, 49, 49);
+    background: rgb(228, 228, 228);
+    position: relative;
   }
+}
+
+.sort-label > span {
+  cursor: pointer;
 }
