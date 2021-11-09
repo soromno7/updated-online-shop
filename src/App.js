@@ -1,21 +1,32 @@
-import Header from "./components/Header/Header.js";
-import Nav from "./components/Nav/Nav.js";
-import Sort from "./components/Sort/Sort.js";
-import Content from "./components/Content/Content.js";
-import { useState, useEffect } from "react";
+import Header from "./components/Header.js";
+import Nav from "./components/Nav.js";
+import Sort from "./components/Sort.js";
+import Content from "./components/Content.js";
+import setPizzas from "./redux/Actions/pizzas.js";
+
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
+import axios from "axios";
 
 import "./App.scss";
 
+
 function App() {
 
-  const [pizzasList, setPizzasList] = useState([]);
+  const dispatch = useDispatch();
+
+  const { items } = useSelector(({ filters, pizzas }) => {
+    return {
+      sortBy: filters.sortBy,
+      items: pizzas.items,
+    }
+  });
 
   useEffect(() => {
-    fetch('http://localhost:3000/database.json')
-      .then((resp) => resp.json())
-      .then((json) => {
-        setPizzasList(json.pizzas)
-      })
+    axios.get('http://localhost:3005/database.json').then(({ data }) => {
+      dispatch(setPizzas(data.pizzas));
+    })
   }, []);
 
   return (
@@ -27,7 +38,7 @@ function App() {
           <Sort />
         </div>
         <div className="contentWrapper">
-          {pizzasList.map((obj) => (
+          {items.map((obj) => (
             <Content key={`${obj.name} + ${obj.id}`} {...obj} />
           ))}
         </div>

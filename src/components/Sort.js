@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
-import triangle from "./img/triangle.svg";
-import "./style.scss";
+import triangle from "../scss-img/triangle.svg";
+import "../scss-img/sort.scss";
 
 export function Sort() {
 
@@ -28,7 +28,7 @@ export function Sort() {
     return (
         <div className="sort-container">
             <div className="sort-label">
-                <img src={triangle} alt="triangle" width="10" height="10"></img>
+                <img src={triangle} alt="triangle" width="10" height="10" className={visiblePopup === true ? 'rotated' : ''}></img>
                 <b>Сортировка по: </b>
                 <span ref={sortLabel}>{activeCategory}</span>
             </div>

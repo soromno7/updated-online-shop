@@ -1,6 +1,6 @@
-import logo from "./img/logo.svg";
-import cartLogo from "./img/cart.svg";
-import "./style.scss";
+import logo from "../scss-img/logo.svg";
+import cartLogo from "../scss-img/cart.svg";
+import "../scss-img/header.scss";
 
 export function Header() {
     return (
