@@ -2,6 +2,7 @@ import "../scss-img/content.scss";
 import plus from "../scss-img//plus.svg";
 import { useState } from "react";
 import PropTypes from 'prop-types';
+import pizzasReducer from "../redux/Reducers/pizzas";
 
 export function Content({ id, name, imageUrl, price, sizes, types }) {
 

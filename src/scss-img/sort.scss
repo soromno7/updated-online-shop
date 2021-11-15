@@ -12,9 +12,6 @@
   }
 }
 
-svg {
-  transform: rotate(180deg);
-}
 .rotated {
   transform: rotate(180deg);
 }
@@ -41,4 +38,8 @@ ul {
 
 .sort-label > span {
   cursor: pointer;
+}
+
+.sort-label > img {
+  transform: rotate(180deg);
 }
