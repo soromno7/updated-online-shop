@@ -15,20 +15,19 @@ export function Sort() {
         }
       });
 
-    const sortByList = ['популярности', 'убыванию цены', 'возрастанию цены', 'алфавиту'];
-    // const sortByList = [
-    //                     {name: 'популярности',
-    //                     sortType: 'rating'},
+    const sortByList = [
+                        {name: 'популярности',
+                        sortType: 'rating'},
 
-    //                     {name: 'убыванию цены',
-    //                     sortType: 'desc'},
+                        {name: 'убыванию цены',
+                        sortType: 'price', order: 'desc'},
 
-    //                     {name: 'возрастанию цены',
-    //                     sortType: 'asc'},
+                        {name: 'возрастанию цены',
+                        sortType: 'price', order: 'asc'},
                         
-    //                     {name: 'алфавиту',
-    //                     sortType: 'alphabet'},
-    //                 ];
+                        {name: 'алфавиту',
+                        sortType: 'name'},
+                    ];
 
     const [visiblePopup, setVisiblePopup] = useState(false);
 
@@ -47,23 +46,21 @@ export function Sort() {
         document.body.addEventListener("click", clickHandler)
     }, []);
 
-    const [activeCategory, setActiveCategory] = useState(sortByList[0]);
-
     return (
         <div className="sort-container">
             <div className="sort-label">
-                <img src={triangle} alt="triangle" width="10" height="10" className={visiblePopup === true ? 'rotated' : ''}></img>
+                <img src={triangle} alt="triangle" width="10" height="10"
+                className={visiblePopup === true ? 'rotated' : ''}></img>
                 <b>Сортировка по: </b>
-                <span ref={sortLabel}>{sortBy}</span>
+                <span ref={sortLabel}>{sortBy.name}</span>
             </div>
             <div className={visiblePopup ? "sort-popup" : "sort-popup-hidden"}>
                 <ul>
-                    {sortByList.map((name, identifier) => (
-                        <li className={activeCategory === name ? 'sortByItem-active' : 'sortByItem'}
-                        onClick={() => {dispatch(setSortBy(name))}}
-                        // onClick={() => {setActiveCategory(name)}}
-                        key={`${name}+${identifier}`}>
-                        {name}
+                    {sortByList.map((obj, identifier) => (
+                        <li className={sortBy.name === obj.name ? 'sortByItem-active' : 'sortByItem'}
+                        onClick={() => {dispatch(setSortBy(obj))}}
+                        key={`${obj.name}+${identifier}`}>
+                        {obj.name}
                         </li>
                     ))}
                 </ul>

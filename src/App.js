@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     dispatch(setLoaded(false));
-    axios.get(`http://localhost:3005/pizzas${category === 0 ? '' : `?category=${category}`}`)
+    axios.get(`http://localhost:3005/pizzas?${category === 0 ? '' : `category=${category}`}&_sort=${sortBy.sortType}&_order=${sortBy.order}`)
       .then(({ data }) => {
         dispatch(setPizzas(data));
       })
