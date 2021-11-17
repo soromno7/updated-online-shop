@@ -3,6 +3,7 @@ import Sort from "./Sort.js";
 import Content from "./Content.js";
 import LoadingBlock from "./LoadingBlock.js";
 import { setPizzas, setLoaded } from "../redux/Actions/pizzas.js";
+import AddPizzaToCart from "../redux/Actions/cart.js";
 import axios from "axios";
 
 import { useEffect } from "react";
@@ -14,6 +15,10 @@ export function Home() {
     const dispatch = useDispatch();
 
     const isLoaded = useSelector(({pizzas}) => pizzas.isLoaded);
+
+    const onClickAddPizza = obj => {
+      dispatch(AddPizzaToCart(obj))
+    }
   
     const { items, category, sortBy } = useSelector(({ filters, pizzas }) => {
       return {
@@ -40,7 +45,7 @@ export function Home() {
             </div>
             <div className="contentWrapper">
             {isLoaded
-            ? items.map((obj) => (<Content key={`${obj.name} + ${obj.id}`} {...obj} />))
+            ? items.map((obj) => (<Content onClickAddPizza={onClickAddPizza} key={`${obj.name} + ${obj.id}`} {...obj} />))
             : Array(12).fill(0).map((_, index) => <LoadingBlock key={index}/>)}
             </div>
         </>

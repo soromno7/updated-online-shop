@@ -2,9 +2,20 @@ import "../scss-img/cart.scss";
 import cartLogo from "../scss-img/cart.svg";
 import trashcan from "../scss-img/trashcan.svg";
 import CartItem from "./CartItem.js";
+import { useSelector } from "react-redux";
 
 
 export function Cart() {
+
+    const { items, totalPrice, totalCount } = useSelector(({ cart }) => {
+        return {
+            items: cart.items,
+            totalPrice: cart.totalPrice,
+            totalCount: cart.totalCount,
+        }
+
+    });
+
     return (
         <>
             <div className="cartContainer">
@@ -19,7 +30,7 @@ export function Cart() {
                     </div>
                 </div>
                 <div className="cartList">
-                    <CartItem />
+                    {items.map((obj) => (<CartItem {...obj}/>))}
                 </div>
             </div>
         </>

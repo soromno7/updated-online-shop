@@ -1,7 +1,7 @@
 const ADD_PIZZA_TO_CART = 'ADD_PIZZA_TO_CART'
 
 const initialState = {
-    items: {},
+    items: [],
     totalPrice: 0,
     totalCount: 0,
 }
@@ -11,8 +11,9 @@ const cart = (state = initialState, action) => {
         case ADD_PIZZA_TO_CART:
             return {
                 ...state,
-                items: action.payload,
-                totalPrice: action.payload.price,
+                items: state.items.concat([action.payload]),
+                totalPrice: state.totalPrice+= action.payload.price,
+                totalCount: state.totalCount+= 1,
             };
         default:
         return state;
