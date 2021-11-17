@@ -1,20 +1,32 @@
 import logo from "../scss-img/logo.svg";
 import cartLogo from "../scss-img/cart.svg";
 import "../scss-img/header.scss";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export function Header() {
+
+    const { totalPrice, totalCount } = useSelector(({ cart }) => cart);
+
     return (
         <>
             <div className="header">
                 <div className="header-symbols">
-                    <img src={logo} heihgt="100" width="100" alt="logo"></img>
+                    <Link to='/'>
+                        <img src={logo} heihgt="100" width="100" alt="logo"></img>
+                    </Link>
                     <h3>REACT PIZZA</h3>
                 </div>
-                <div className="header-btn">
-                    <span>333 </span>
-                    <span>|</span>
-                    <img src={cartLogo} alt="cart logo" width="35" height="35"></img>
-                </div>
+                <Link to='/cart'>
+                    <div className="header-btn">
+                        <div className="header-btn-total-price">{totalPrice} руб.</div>
+                        <div className="header-btn-counter-img">
+                            <img src={cartLogo} alt="cart logo" width="20" height="20"></img>
+                            <div>{totalCount}</div>
+                        </div>
+
+                    </div>
+                </Link>
             </div>
         </>
     );

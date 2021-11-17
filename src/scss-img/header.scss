@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
 
-    > img {
+    > a > img {
       margin-right: 30px;
     }
   }
@@ -23,9 +23,27 @@
     justify-content: space-around;
     align-items: center;
     height: 45px;
-    width: 130px;
+    width: 150px;
     cursor: pointer;
     background-color: orange;
     border-radius: 30px;
+    color: black;
+    &-total-price {
+      width: 50%;
+      height: 50%;
+      text-align: center;
+    }
+    &-counter-img {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      border-left: 2px solid rgb(0, 0, 0);
+      width: 50%;
+      height: 100%;
+      > div {
+        padding-right: 5px;
+      }
+    }
   }
 }

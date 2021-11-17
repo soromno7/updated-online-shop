@@ -2,13 +2,17 @@ import "../scss-img/content.scss";
 import plus from "../scss-img//plus.svg";
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import pizzasReducer from "../redux/Reducers/pizzas";
+import { useSelector, useDispatch } from "react-redux";
+import AddPizzaToCart from "../redux/Actions/cart.js";
+
 
 export function Content({ id, name, imageUrl, price, sizes, types }) {
 
     const [activeType, setActiveType] = useState();
     
     const [activeSize, setActiveSize] = useState();
+    
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -34,7 +38,7 @@ export function Content({ id, name, imageUrl, price, sizes, types }) {
                     <h4>от {price} ₽</h4>
                     <div className="addToCartBtn">
                         <img src={plus} alt="plus"></img>
-                        <h5>Добавить</h5>
+                        <h5 onClick={() => dispatch(AddPizzaToCart())}>Добавить</h5>
                     </div>
                 </div>
 
