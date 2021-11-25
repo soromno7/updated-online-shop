@@ -24,6 +24,7 @@
     > .cartHeaderRight {
       display: flex;
       align-items: center;
+      cursor: pointer;
       > img {
         padding: 0px 10px 0px 0px;
       }
@@ -43,12 +44,40 @@
     display: flex;
     justify-content: space-between;
     width: 50%;
+    > img {
+      cursor: pointer;
+    }
     > .cartItemRightCounter {
       display: flex;
       align-items: center;
+      > img {
+        cursor: pointer;
+      }
       > h4 {
         padding: 0px 20px;
       }
     }
+  }
+  &BackToHomeBtn {
+    height: 45px;
+    width: 150px;
+    cursor: pointer;
+    background: rgb(228, 228, 228);
+    text-align: center;
+    align-items: center;
+    border-radius: 30px;
+    border: 0px;
+    color: black;
+    margin-top: 40px;
+  }
+}
+
+.cartPlugContainer {
+  text-align: center;
+  > h3 {
+    padding-top: 30px;
+  }
+  > .cartPlugText {
+    padding-bottom: 30px;
   }
 }

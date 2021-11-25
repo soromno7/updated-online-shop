@@ -18,14 +18,14 @@ export function Header() {
                     <h3>REACT PIZZA</h3>
                 </div>
                 <Link to='/cart'>
-                    <div className="header-btn">
+                    <button className="header-btn">
                         <div className="header-btn-total-price">{totalPrice} руб.</div>
                         <div className="header-btn-counter-img">
                             <img src={cartLogo} alt="cart logo" width="20" height="20"></img>
                             <div>{totalCount}</div>
                         </div>
 
-                    </div>
+                    </button>
                 </Link>
             </div>
         </>

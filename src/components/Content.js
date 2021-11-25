@@ -2,17 +2,12 @@ import "../scss-img/content.scss";
 import plus from "../scss-img//plus.svg";
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { useSelector, useDispatch } from "react-redux";
-import AddPizzaToCart from "../redux/Actions/cart.js";
-
 
 export function Content({ id, name, imageUrl, price, sizes, types, onClickAddPizza }) {
 
     const [activeType, setActiveType] = useState();
     
     const [activeSize, setActiveSize] = useState();
-    
-    const dispatch = useDispatch();
 
     const addPizzaHandler = () => {
         const obj = {
