@@ -15,6 +15,7 @@
 .rotated {
   transform: rotate(180deg);
 }
+
 .sort-container {
   width: 276px;
 }
@@ -38,8 +39,4 @@ ul {
 
 .sort-label > span {
   cursor: pointer;
-}
-
-.sort-label > img {
-  transform: rotate(180deg);
 }

@@ -76,6 +76,9 @@
     border: 0px;
     color: black;
     margin-top: 40px;
+    &:focus {
+      outline: none;
+    }
   }
 }
 

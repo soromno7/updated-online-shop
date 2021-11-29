@@ -18,18 +18,24 @@
     }
   }
 
+  a {
+    text-decoration: none;
+    outline: none;
+  }
   &-btn {
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 45px;
     width: 150px;
-    outline: none;
     cursor: pointer;
     background-color: orange;
     border-radius: 30px;
     color: black;
     border: none;
+    &:focus {
+      outline: none;
+    }
     &-total-price {
       width: 50%;
       height: 50%;
