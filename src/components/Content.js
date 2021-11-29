@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 
 export function Content({ id, name, imageUrl, price, sizes, types, onClickAddPizza }) {
 
-    const [activeType, setActiveType] = useState();
+    const [activeType, setActiveType] = useState(null);
     
-    const [activeSize, setActiveSize] = useState();
+    const [activeSize, setActiveSize] = useState(null);
 
     const addPizzaHandler = () => {
+        if(activeType == null || activeSize == null) {
+            return;
+        }
         const obj = {
             id,
             name,

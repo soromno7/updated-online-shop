@@ -1,11 +1,18 @@
 .cartContainer {
   background: white;
   padding: 40px 110px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   width: 80%;
   > h2 {
     margin: 0;
   }
-  > .cartList > .cartItem {
+
+  .cartList {
+    min-height: 564px;
+  }
+
+  .cartItem {
     display: flex;
     align-items: center;
     justify-content: space-between;

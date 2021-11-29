@@ -40,7 +40,7 @@ export function Cart() {
                                     </div>
                                     <img src={cartPlugIcon} alt="cart-plug-icon" width="300" height="300"></img>
                                 </div>
-                    ) : items.map((obj) => (<CartItem {...obj} key={obj.id} />))}
+                    ) : items.map((obj) => (<CartItem {...obj} key={`${obj.name} + ${obj.id} + ${obj.price}`} />))}
                 </div>
                 <Link to="/">
                     <button className="cartContainerBackToHomeBtn">На главную</button>

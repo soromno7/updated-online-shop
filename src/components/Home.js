@@ -46,7 +46,7 @@ export function Home() {
             <div className="contentWrapper">
             {isLoaded
             ? items.map((obj) => (<Content onClickAddPizza={onClickAddPizza} key={`${obj.name} + ${obj.id}`} {...obj} />))
-            : Array(12).fill(0).map((_, index) => <LoadingBlock key={index}/>)}
+            : Array(20).fill(0).map((_, index) => <LoadingBlock key={index}/>)}
             </div>
         </>
     )
